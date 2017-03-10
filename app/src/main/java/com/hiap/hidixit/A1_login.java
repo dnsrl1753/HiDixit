@@ -64,7 +64,7 @@ public class A1_login extends AppCompatActivity implements
 
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
-        findViewById(R.id.sign_out_button).setOnClickListener(this);
+//        findViewById(R.id.sign_out_button).setOnClickListener(this);
         findViewById(R.id.b1_setting).setOnClickListener(this);
 //        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
@@ -240,9 +240,9 @@ public class A1_login extends AppCompatActivity implements
             case R.id.sign_in_button:
                 signIn();
                 break;
-            case R.id.sign_out_button:
-                signOut();
-                break;
+//            case R.id.sign_out_button:
+//                signOut();
+//                break;
             case R.id.b1_setting:
                 Intent intent = new Intent(this, A1_setting.class);
                 startActivity(intent);

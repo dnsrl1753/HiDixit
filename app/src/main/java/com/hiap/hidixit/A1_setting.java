@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import static com.hiap.hidixit.A0_global.decorView;
+import static com.hiap.hidixit.A0_global.uiOption;
+
 /**
  * Created by WoonGi on 2017-03-10.
  */
@@ -15,6 +18,8 @@ public class A1_setting extends Activity implements View.OnClickListener{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.l1_setting);
+
+        decorView.setSystemUiVisibility( uiOption );
 
         findViewById(R.id.b1_back).setOnClickListener(this);
         findViewById(R.id.b1_signout).setOnClickListener(this);
