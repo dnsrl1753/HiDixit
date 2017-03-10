@@ -1,7 +1,12 @@
+/*
+TODO 1. 이 액티비티 에서만 로그아웃 가능
+TODO 2. 그러므로 이 액티비티가 로비기능도 하도록 하기를 권함
+*/
 package com.hiap.hidixit;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,20 +24,36 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import static com.hiap.hidixit.A0_global.decorView;
+import static com.hiap.hidixit.A0_global.uiOption;
+
 public class A1_login extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
 
-    private static final String TAG = "A1_login";
+    private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.l1_login);
+
+        decorView = getWindow().getDecorView();
+        uiOption = getWindow().getDecorView().getSystemUiVisibility();
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH )
+            uiOption |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN )
+            uiOption |= View.SYSTEM_UI_FLAG_FULLSCREEN;
+        if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT )
+            uiOption |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+        decorView.setSystemUiVisibility( uiOption );
 
         // Views
         mStatusTextView = (TextView) findViewById(R.id.status);
@@ -40,7 +61,8 @@ public class A1_login extends AppCompatActivity implements
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
+        findViewById(R.id.b1_setting).setOnClickListener(this);
+//        findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START configure_signin]
         // Configure sign-in to request the user's ID, email address, and basic
@@ -68,9 +90,15 @@ public class A1_login extends AppCompatActivity implements
         // Scopes.PLUS_LOGIN scope to the GoogleSignInOptions to see the
         // difference.
         SignInButton signInButton = (SignInButton) findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setSize(SignInButton.SIZE_WIDE);
         signInButton.setScopes(gso.getScopeArray());
         // [END customize_button]
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        decorView.setSystemUiVisibility( uiOption );
     }
 
     @Override
@@ -119,7 +147,12 @@ public class A1_login extends AppCompatActivity implements
             // Signed in successfully, show authenticated UI.
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(acct.getDisplayName());
+            mStatusTextView.append("님 hidixit에 오신것을 환영합니다.");
             updateUI(true);
+
+//            Intent intent = new Intent(this, A2_lobby.class);
+//            startActivity(intent);
+
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
@@ -206,9 +239,12 @@ public class A1_login extends AppCompatActivity implements
             case R.id.sign_out_button:
                 signOut();
                 break;
-            case R.id.disconnect_button:
-                revokeAccess();
-                break;
+            case R.id.b1_setting:
+                Intent intent = new Intent(this, A1_setting.class);
+                startActivity(intent);
+//            case R.id.disconnect_button:
+//                revokeAccess();
+//                break;
         }
     }
 }
