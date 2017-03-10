@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "636665364885",
+    "project_id": "firebase-hidixit"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636665364885:android:41358f8a0f5b5172",
+        "android_client_info": {
+          "package_name": "com.hiap.hidixit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636665364885-0pp030djfah0tucp4pteht5735enfr82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hiap.hidixit",
+            "certificate_hash": "fe79f138383761dd62d3adcdb22d56e7805312fd"
+          }
+        },
+        {
+          "client_id": "636665364885-ho3d64sgrg9k06p95u698p8ffrgqruca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpOu_9EPqcLHWnZsc2FHD1FntKgEzvlVo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
