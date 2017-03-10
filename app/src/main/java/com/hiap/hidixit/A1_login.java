@@ -5,6 +5,7 @@ TODO 2. 그러므로 이 액티비티가 로비기능도 하도록 하기를 권
 package com.hiap.hidixit;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,7 @@ import static com.hiap.hidixit.A0_global.uiOption;
 public class A1_login extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
-
+    public static Context mContext;
     private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
@@ -39,10 +40,13 @@ public class A1_login extends AppCompatActivity implements
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.l1_login);
+
+        mContext = this;
 
         decorView = getWindow().getDecorView();
         uiOption = getWindow().getDecorView().getSystemUiVisibility();
@@ -168,7 +172,7 @@ public class A1_login extends AppCompatActivity implements
     // [END signIn]
 
     // [START signOut]
-    private void signOut() {
+    public void signOut() {
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
