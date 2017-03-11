@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">HiDixit</string>
+<!--구글에서 받은 앱의 ID-->
+    <string name="app_id">636665364885</string>
+<!---->
     <string name="loading">loading</string>
     <string name="signed_out">signed_out</string>
     <string name="signed_in_fmt">LoginTest</string>
