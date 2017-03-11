@@ -1,7 +1,3 @@
-/*
-TODO 1. 이 액티비티 에서만 로그아웃 가능
-TODO 2. 그러므로 이 액티비티가 로비기능도 하도록 하기를 권함
-*/
 package com.hiap.hidixit;
 
 import android.app.ProgressDialog;
