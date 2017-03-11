@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'                                                      //플레이 서비스 사용
+//apply plugin: 'com.google.gms.google-services'                                                      //플레이 서비스 사용
 
 android {
     compileSdkVersion 25
@@ -29,7 +29,7 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
 
-    compile 'com.google.android.gms:play-services-auth:8.3.0'                                       // 플레이 서비스: 파이어베이스와 통합하여 쓰지않음
-                                                                                                    // 그럼 로그인 부분 대규모 변동이 필요함
-//    compile 'com.google.firebase:firebase-core:10.0.1'                                              // 파이어 베이스 코어
+    compile 'com.google.android.gms:play-services-auth:10.2.0'                                      // 플레이 서비스: 파이어베이스와 통합하여 쓰지않음
+                                                                                                    // 그럼 로그인 부분 대규모 변동이 필요함 :: 버젼이 낮아서 호환이 안되었음
+    compile 'com.google.firebase:firebase-core:10.0.1'                                              // 파이어 베이스 코어
 }

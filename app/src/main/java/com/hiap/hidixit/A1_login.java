@@ -31,6 +31,8 @@ import static com.hiap.hidixit.A0_global.uiOption;
 public class A1_login extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
+
+
     public static Context mContext;
     private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 9001;
